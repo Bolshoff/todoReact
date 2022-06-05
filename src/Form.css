@@ -16,3 +16,8 @@
     top: 3px;
 
 }
+.task{
+    position: relative;
+    width: 40px;
+    height: 40px;
+}

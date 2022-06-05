@@ -1,12 +1,16 @@
-import React from 'react';
 
-function Task(){
+
+function Task(props){
 
 
   return(
-    <li><input type="checkbox"/> Abracadabra <button>X</button> </li>
+    <div>
+      <input type="checkbox"/>
+      {props.todo.text}
+      <div>x</div>
+    </div>
 
-  );
+  )
 }
 
 export default Task;
