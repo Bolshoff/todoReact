@@ -13,7 +13,7 @@ function Form(props){
       text: value
     }
     setTodos([...todos,newTask]);
-    setValue('')
+    setValue('');
   }
   const delTask =(todo)=>{
     setTodos(todos.filter(elem => elem.id !== todo.id))
@@ -21,8 +21,10 @@ function Form(props){
 
     function handleSubmit(e){
       e.preventDefault();
+    if(value !== ''){
       addTask();
-      e.target.reset();
+    }
+
     }
 
 
@@ -31,13 +33,13 @@ function Form(props){
               <h3>{props.header}</h3>
               <form onSubmit={handleSubmit}>
                 <label>
-                  <input className="input-todo" type="text"  value={props.value}  onChange={(e)=>setValue(e.target.value)} />
+                  <input className="input-todo" type="text"  value={value}  onChange={(e)=>setValue(e.target.value)} />
                 </label>
                 <input className="submit-button" type="submit" value="+" />
               </form>
               <div className='task'>
                 {todos.map(elem=>
-                    <Task todo={elem} delete={delTask}/>
+                    <Task todo={elem} key={elem.id} delete={delTask}/>
                 )}
 
               </div>
