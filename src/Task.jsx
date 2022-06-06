@@ -4,7 +4,7 @@ function Task(props){
 
 
   return(
-    <div>
+    <div className="task-item">
       <input type="checkbox"/>
       {props.todo.text}
       <button className="delButton" onClick={() => props.delete(props.todo)}>x</button>

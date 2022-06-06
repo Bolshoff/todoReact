@@ -21,9 +21,9 @@ function Form(props){
 
     function handleSubmit(e){
       e.preventDefault();
-    if(value !== ''){
+      if(value !== ''){
       addTask();
-    }
+      }
 
     }
 
@@ -33,9 +33,15 @@ function Form(props){
               <h3>{props.header}</h3>
               <form onSubmit={handleSubmit}>
                 <label>
-                  <input className="input-todo" type="text"  value={value}  onChange={(e)=>setValue(e.target.value)} />
+                  <input className="input-todo"
+                         type="text"
+                         value={value}
+                         onChange={(e)=>setValue(e.target.value)} />
                 </label>
-                <input className="submit-button" type="submit" value="+" />
+                <input className="submit-button"
+                       type="submit"
+                       value="+"
+                />
               </form>
               <div className='task'>
                 {todos.map(elem=>
