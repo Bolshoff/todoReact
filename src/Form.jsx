@@ -1,34 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Form.css';
-import List from './List';
 import Task from './Task';
 
 function Form(props){
 
   const [value, setValue] = useState('');
-  const [todos, setTodos] = useState([{id:1, text: 'sfddsf'}]);
+  const [todos, setTodos] = useState([]);
 
   function addTask(){
     const newTask = {
-      id: new Date().toString(),
+      id: Date.now(),
       text: value
     }
     setTodos([...todos,newTask]);
+    setValue('')
   }
-
+  const delTask =(todo)=>{
+    setTodos(todos.filter(elem => elem.id !== todo.id))
+  }
 
     function handleSubmit(e){
       e.preventDefault();
       addTask();
-      console.log(todos);
       e.target.reset();
-
-
     }
 
 
 
   return ( <div>
+              <h3>{props.header}</h3>
               <form onSubmit={handleSubmit}>
                 <label>
                   <input className="input-todo" type="text"  value={props.value}  onChange={(e)=>setValue(e.target.value)} />
@@ -37,8 +37,9 @@ function Form(props){
               </form>
               <div className='task'>
                 {todos.map(elem=>
-                    <Task todo={elem}/>
+                    <Task todo={elem} delete={delTask}/>
                 )}
+
               </div>
             </div>
 

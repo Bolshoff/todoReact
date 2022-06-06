@@ -1,5 +1,5 @@
 
-
+import './Task.css';
 function Task(props){
 
 
@@ -7,7 +7,7 @@ function Task(props){
     <div>
       <input type="checkbox"/>
       {props.todo.text}
-      <div>x</div>
+      <button className="delButton" onClick={() => props.delete(props.todo)}>x</button>
     </div>
 
   )
