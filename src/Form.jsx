@@ -39,7 +39,7 @@ function Form(props){
               </form>
               <div className='task'>
                 {todos.map(elem=>
-                    <Task todo={elem} delete={delTask} key={todos.id}/>
+                    <Task todo={elem} delete={delTask} key={elem.id}/>
                 )}
 
               </div>
