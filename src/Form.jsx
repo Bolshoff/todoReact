@@ -10,7 +10,8 @@ function Form(props){
   function addTask(){
     const newTask = {
       id: Date.now(),
-      text: value
+      text: value,
+      done: false
     }
     setTodos([...todos,newTask]);
     setValue('')
@@ -18,6 +19,7 @@ function Form(props){
   const delTask =(todo)=>{
     setTodos(todos.filter(elem => elem.id !== todo.id))
   }
+
 
     function handleSubmit(e){
       e.preventDefault();
@@ -37,7 +39,7 @@ function Form(props){
               </form>
               <div className='task'>
                 {todos.map(elem=>
-                    <Task todo={elem} delete={delTask}/>
+                    <Task todo={elem} delete={delTask} key={todos.id}/>
                 )}
 
               </div>
