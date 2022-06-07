@@ -1,3 +1,13 @@
 .delButton{
     cursor: pointer;
 }
+.task-item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px;
+    border: #070707 solid 1px;
+    border-right: 8px;
+    min-height: 30px;
+    text-align: start;
+}
